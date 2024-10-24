@@ -1,0 +1,76 @@
+<%- layout("/boilerplate.ejs") %>
+
+<body>
+  <div class="container">
+    <h1 class="my-4">Mentors</h1>
+    <div class="row">
+      <% mentors.forEach(mentor => { %>
+      <div class="col-md-4">
+        <!-- Wrap the card content inside an <a> tag -->
+        <a href="/mentors/<%= mentor._id %>" class="card-link">
+          <div class="card mb-4 shadow-sm">
+            <img src="<%= mentor.logoUrl %>" class="card-img-top" alt="<%= mentor.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= mentor.name %></h5>
+              <p class="card-text"><strong>Expertise:</strong> <%= mentor.expertise %></p>
+              <p class="card-text"><strong>Experience:</strong> <%= mentor.experience %> years</p>
+              
+              <!-- Add a button-like element inside the card -->
+              <span class="btn btn-primary btn-card">View Profile</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <style>
+    /* Remove the default styles for the <a> tag */
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Optional: Make the card have a pointer cursor when hovered */
+    .card-link .card {
+      cursor: pointer;
+    }
+
+    /* Optional: Add a hover effect */
+    .card-link .card:hover {
+      transform: scale(1.02);
+      transition: transform 0.2s ease;
+    }
+
+    /* Style the button-like element */
+    .btn-card {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      color: #fff;
+      background-color: #007bff;
+      cursor: pointer;
+      transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+
+    /* Hover effect for the button-like element */
+    .btn-card:hover {
+      background-color: #0056b3;
+    }
+
+    /* Ensuring the button remains inside and clickable */
+    .card-body {
+      position: relative;
+    }
+  </style>
+</body>
+

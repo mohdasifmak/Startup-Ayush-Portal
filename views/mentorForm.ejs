@@ -1,0 +1,56 @@
+<%- layout("/boilerplate.ejs") %>
+
+<body>
+    <!-- views/mentorForm.ejs -->
+<h2 class="mt-3">Mentor Registration</h2>
+<form action="/register/mentor" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="expertise">Expertise</label>
+    <input type="text" class="form-control" id="expertise" name="expertise" required>
+  </div>
+
+  <div class="form-group">
+    <label for="experience">Experience (Years)</label>
+    <input type="number" class="form-control" id="experience" name="experience" required>
+  </div>
+
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" class="form-control" id="location" name="location" required>
+  </div>
+
+  <!-- Contact Info -->
+  <h3 class="mt-5">Contact Information</h3>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="contactInfo.email" required>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone" name="contactInfo.phone" required>
+  </div>
+
+  <div class="form-group">
+    <label for="bio">Bio</label>
+    <textarea class="form-control" id="bio" name="bio" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="availability">Availability</label>
+    <input type="text" class="form-control" id="availability" name="availability" required>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="logoUrl">Logo</label>
+    <input type="text" class="form-control" id="logoUrl" name="logoUrl">
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3 mb-3">Submit</button>
+</form>
+
+</body>

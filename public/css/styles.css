@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background-image: url('your-background-image.jpg');
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.cta-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
+footer {
+    text-align: center;
+    color: #fff;
+}
+.bannerHeading{
+    color: whitesmoke; 
+    font-weight: bolder; 
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+    padding: 3px;
+    display: inline-block;
+    background-color: darkgreen;
+}

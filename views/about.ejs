@@ -1,0 +1,124 @@
+<%- layout("/boilerplate.ejs") %>
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .profile-header {
+        background-color: #28a745;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+    }
+    .profile-logo {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid white;
+    }
+    .profile-card {
+        margin: 30px auto;
+        padding: 20px;
+        border: none;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+    .profile-card h4 {
+        color: #333;
+    }
+    .section-title {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .card-content {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .back-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .back-button:hover {
+        background-color: #218838;
+    }
+
+    .img{
+        width: 45vh
+    }
+</style>
+
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>About AYUSH</h1>
+        <p>Discover the transformative power of AYUSH systems that blend ancient wisdom with modern health practices to promote holistic well-being.</p>
+    </div>
+
+    <!-- Why AYUSH Section -->
+    <div class="container info-section">
+        <div class="section-title">Why AYUSH?</div>
+        <div class="row justify-content-center">
+            <div class="col-md-5 text-center">
+                <img src="../assets/homepageBanner.jpg" alt="Why AYUSH" class="img">
+            </div>
+            <div class="col-md-7">
+                <h4>Promoting Natural Health and Wellness</h4>
+                <p>AYUSH encompasses traditional and natural practices like Ayurveda, Yoga, Naturopathy, Unani, Siddha, and Homeopathy, focusing on preventive and holistic healthcare. It integrates ancient knowledge systems with modern research to provide sustainable health solutions for all.</p>
+                <p>AYUSH not only treats ailments but also emphasizes overall health and preventive care, making it a comprehensive approach to well-being.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features of AYUSH Section -->
+    <div class="container info-section mb-3">
+        <div class="section-title">Features of AYUSH</div>
+        <div class="row">
+            <!-- Feature 1: Ayurveda -->
+            <div class="col-md-4">
+                <div class="card feature-card text-center">
+                    <i class="bi bi-flower1"></i>
+                    <h4>Ayurveda</h4>
+                    <p>Holistic healing system focused on balancing body, mind, and spirit through natural therapies and dietary practices.</p>
+                </div>
+            </div>
+
+            <!-- Feature 2: Yoga -->
+            <div class="col-md-4">
+                <div class="card feature-card text-center">
+                    <i class="bi bi-body"></i>
+                    <h4>Yoga</h4>
+                    <p>Combines physical postures, breathing techniques, and meditation for a complete mind-body experience.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Naturopathy -->
+            <div class="col-md-4">
+                <div class="card feature-card text-center">
+                    <i class="bi bi-leaf"></i>
+                    <h4>Naturopathy</h4>
+                    <p>Utilizes natural remedies and techniques to harness the body’s self-healing capabilities and promote health.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Us Section -->
+    <div class="container info-section text-center">
+        <div class="section-title">Join the AYUSH Movement</div>
+        <p>Be part of a growing community that believes in sustainable and natural health practices. Whether you’re a practitioner, enthusiast, or entrepreneur, AYUSH offers endless opportunities to make a difference.</p>
+        <a href="/register" class=" btn btn-primary mb-2">join Us</a>
+    </div>
+</body>

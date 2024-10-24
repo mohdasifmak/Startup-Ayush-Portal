@@ -1,0 +1,121 @@
+<%- layout("/boilerplate.ejs") %>
+
+<style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-header {
+            background-color: #007bff;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .profile-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+        }
+        .profile-card {
+            margin: 30px auto;
+            padding: 20px;
+            border: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .profile-card h4 {
+            color: #333;
+        }
+        .section-title {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .card-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    
+</style>
+
+
+<body>
+    <div class="profile-header">
+        <img src="<%= investor.logoURL %>" alt="Investor Logo" class="profile-logo mb-3">
+        <h1><%= investor.name %></h1>
+        <p class="lead"><%= investor.industry %> Industry</p>
+    </div>
+
+    <div class="d-flex justify-content-between">
+    <div class="mt-3">
+        <a href="/investor/update/<%= investor._id %>" class="back-button">Update Profile</a>
+    </div>
+    <div class="mt-2">
+        <form action="/investor/delete/<%= investor._id %>" method="POST" onsubmit="return confirm('You want to delete your Profile?');">
+            <button type="submit" class="btn btn-danger">Delete Profile</button>
+        </form>
+    </div>
+    </div>
+    
+    <div class="container">
+        <div class="card profile-card">
+            <!-- Basic Information -->
+            <div class="card-content">
+                <h4 class="section-title">Basic Information</h4>
+                <p><strong>Location:</strong> <%= investor.location.city %>, <%= investor.location.state %>, <%= investor.location.country %></p>
+                <p><strong>Experience:</strong> <%= investor.experience %> years</p>
+                <p><strong>Funding Range:</strong> $<%= investor.fundingRange.min %> - $<%= investor.fundingRange.max %></p>
+            </div>
+
+            <!-- Investment Details -->
+            <div class="card-content">
+                <h4 class="section-title">Investment Areas</h4>
+                <ul class="list-group">
+                    <% investor.investmentAreas.forEach(area => { %>
+                        <li class="list-group-item"><%= area %></li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Funding Stages -->
+            <div class="card-content">
+                <h4 class="section-title">Preferred Funding Stages</h4>
+                <ul class="list-group">
+                    <% investor.preferredFundingStages.forEach(stage => { %>
+                        <li class="list-group-item"><%= stage %></li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="card-content">
+                <h4 class="section-title">Contact Information</h4>
+                <p><strong>Email:</strong> <%= investor.contactInfo.email %></p>
+                <p><strong>Phone:</strong> <%= investor.contactInfo.phone %></p>
+                <p><strong>Website:</strong> <a href="<%= investor.contactInfo.website %>" target="_blank"><%= investor.contactInfo.website %></a></p>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="text-center">
+                <a href="/investors" class="back-button">Back to All Investors</a>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,73 @@
+<% layout("/boilerplate.ejs") %>
+<style>
+  /* Additional Styling for Startup Cards */
+  .startup-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .startup-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #17a2b8;
+  }
+
+  .card-body {
+    text-align: left;
+  }
+
+  .btn-profile {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+
+  .btn-profile:hover {
+    background-color: #138496;
+  }
+
+  .card-footer {
+    background-color: #f8f9fa;
+    border-top: none;
+  }
+
+  .card-footer p {
+    margin-bottom: 0;
+  }
+
+  .click{
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Explore AYUSH Startups</h1>
+    <div class="row">
+      <% allStartups.forEach(startup => { %>
+        <div class="col-md-4">
+          <a href="/startups/<%= startup._id %>" class="click">
+          <div class="card mb-4 startup-card shadow-sm">
+            <img src="<%= startup.logo %>" class="card-img-top" alt="<%= startup.name %> Logo">
+            <div class="card-body">
+              <h5 class="card-title"><%= startup.name %></h5>
+              <p class="card-text"><strong>Industry:</strong> <%= startup.industry %></p>
+              <p class="card-text"><strong>Founder:</strong> <%= startup.founderName %></p>
+              <p class="card-text"><strong>Founded:</strong> <%= startup.foundedYear %></p>
+            </div>
+            <div class="card-footer">
+              <p><strong>Location:</strong> <%= startup.location %></p>
+              <p><strong>Status:</strong> <%= startup.operationalDetails.status %></p>
+            </div>
+          </div>
+        </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>

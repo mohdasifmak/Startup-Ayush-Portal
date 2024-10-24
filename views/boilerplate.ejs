@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <title>Startup Ayush Portal</title>
+</head>
+<body>
+
+          <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">AYUSH Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About AYUSH</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/startups">Startups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/investors">Investors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentors">Mentorship</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary" href="/register">Login/Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+      <div class="container">
+        <%- body %>
+      </div>
+
+
+     <!-- Footer -->
+     <footer class="bg-dark text-light py-3 mt-auto">
+        <div class="container">
+            <p class="text-center">© 2024 AYUSH Portal. All rights reserved.</p>
+            <div class="text-center">
+                <a href="#">Contact Us</a> | <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="/js/scripts.js"></script> <!-- Link to your JS -->
+</body>
+</body>
+</html>

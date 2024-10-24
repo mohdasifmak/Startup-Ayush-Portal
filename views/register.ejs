@@ -1,0 +1,47 @@
+<%- layout("/boilerplate.ejs") %>
+
+<body class="d-flex flex-column min-vh-100">
+  <div class="container mt-3">
+    <h2>Register</h2>
+    <form action="/register" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group mt-3">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="form-group mt-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group  mt-3">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="form-group  mt-3">
+        <label for="role">Role</label>
+        <select class="form-control" id="role" name="role" required>
+          <option value="">Select Role</option>
+          <option value="Startup">Startup</option>
+          <option value="Investor">Investor</option>
+          <option value="Mentor">Mentor</option>
+          <option value="General User">General User</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary mt-4">Next</button>
+    </form>
+    <p class="mt-3 para"><b>Already Register Please <a href="/login" class="login">Login</a> </b></p>
+  </div>
+</body>
+
+<style>
+    .login{
+        text-decoration: none;
+    }
+    .para{
+        font-size: larger;
+    }
+</style>
+

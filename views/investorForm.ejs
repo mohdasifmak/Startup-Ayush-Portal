@@ -1,0 +1,86 @@
+<%- layout("/boilerplate.ejs") %>
+
+<body>
+    
+    <!-- views/investorForm.ejs -->
+<h2 class="mt-4">Investor Registration</h2>
+<form action="/register/investor" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="industry">Industry</label>
+    <input type="text" class="form-control" id="industry" name="industry" required>
+  </div>
+
+  <!-- Contact Info -->
+  <h3 class="mt-5">Contact Information</h3>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="contactInfo.email" required>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone" name="contactInfo.phone">
+  </div>
+  <div class="form-group">
+    <label for="website">Website</label>
+    <input type="url" class="form-control" id="website" name="contactInfo.website">
+  </div>
+
+  <div class="form-group">
+    <label for="investmentAreas">Investment Areas</label>
+    <input type="text" class="form-control" id="investmentAreas" name="investmentAreas">
+  </div>
+
+  <div class="form-group">
+    <label for="fundingRange">Funding Range (Min)</label>
+    <input type="number" class="form-control" id="fundingRangeMin" name="fundingRange.min">
+  </div>
+  <div class="form-group">
+    <label for="fundingRangeMax">Funding Range (Max)</label>
+    <input type="number" class="form-control" id="fundingRangeMax" name="fundingRange.max">
+  </div>
+
+  <div class="form-group">
+    <label for="locationCity">City</label>
+    <input type="text" class="form-control" id="locationCity" name="location.city">
+  </div>
+  <div class="form-group">
+    <label for="locationState">State</label>
+    <input type="text" class="form-control" id="locationState" name="location.state">
+  </div>
+  <div class="form-group">
+    <label for="locationCountry">Country</label>
+    <input type="text" class="form-control" id="locationCountry" name="location.country">
+  </div>
+
+  <div class="form-group">
+    <label for="experience">Experience (Years)</label>
+    <input type="number" class="form-control" id="experience" name="experience">
+  </div>
+
+  <div class="form-group">
+    <label for="preferredFundingStages">Preferred Funding Stages</label>
+    <input type="text" class="form-control" id="preferredFundingStages" name="preferredFundingStages">
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="logoURL">Logo URL</label>
+    <input type="text" class="form-control-file" id="logoURL" name="logoURL">
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="status">Status</label>
+    <select class="form-control" id="status" name="status">
+      <option>Active</option>
+      <option>Inactive</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3 mb-3">Submit</button>
+</form>
+
+</body>

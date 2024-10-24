@@ -1,0 +1,47 @@
+<%- layout("/boilerplate.ejs") %>
+
+
+<style>
+    .card {
+        margin: 20px;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-img-top {
+        height: 150px;
+        object-fit: cover;
+    }
+    .btn-profile {
+        margin-top: 15px;
+        background-color: #007bff;
+        color: white;
+    }
+
+    .click{
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Investors</h1>
+        <div class="row">
+            <% investors.forEach(investor => { %>
+                <div class="col-md-4">
+                    <a href="/investors/<%= investor._id %>" class="click">
+                    <div class="card">
+                        <img src="<%= investor.logoURL %>" class="card-img-top" alt="Investor Logo">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= investor.name %></h5>
+                            <p class="card-text">Industry: <%= investor.industry %></p>
+                            <p class="card-text">Location: <%= investor.location.city %>, <%= investor.location.state %></p>
+                        
+                        </div>
+                    </div>
+                </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,89 @@
+<%- layout("/boilerplate.ejs") %>
+<body>
+    <div class="container mt-3">
+        <h1>Update Information</h1>
+        <form action="/startup/update/<%= startup._id %>" method="POST">
+            <div class="form-group mt-2">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" value="<%= startup.name %>" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="description">Description:</label>
+                <textarea class="form-control" name="description" rows="4" required><%= startup.description %></textarea>
+            </div>
+            <div class="form-group mt-2">
+                <label for="industry">Industry:</label>
+                <select class="form-control" name="industry" required>
+                    <option value="<%= startup.industry %>"><%= startup.industry %></option>
+                    <option value="Ayurveda">Ayurveda</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Naturopathy">Naturopathy</option>
+                    <option value="Unani">Unani</option>
+                    <option value="Siddha">Siddha</option>
+                    <option value="Homeopathy">Homeopathy</option>
+                </select>
+            </div>
+            <div class="form-group mt-2">
+                <label for="founderName">Founder Name:</label>
+                <input type="text" class="form-control" name="founderName" value="<%= startup.founderName %>" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="foundedYear">Founded Year:</label>
+                <input type="number" class="form-control" name="foundedYear" value="<%= startup.foundedYear %>" min="1900" max="2024" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" name="location" value="<%= startup.location %>" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="contactInfo.email">Email:</label>
+                <input type="email" class="form-control" name="contactInfo.email" value="<%= startup.contactInfo.email %>" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="contactInfo.phone">Phone:</label>
+                <input type="text" class="form-control" name="contactInfo.phone" value="<%= startup.contactInfo.phone %>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="fundingInfo.fundingStage">Funding Stage:</label>
+                <select class="form-control" name="fundingInfo.fundingStage" required>
+                    <option value="<%= startup.fundingInfo.fundingStage %>"><%= startup.fundingInfo.fundingStage %></option>
+                    <option value="Pre-seed">Pre-seed</option>
+                    <option value="Seed">Seed</option>
+                    <option value="Series A">Series A</option>
+                    <option value="Series B">Series B</option>
+                    <option value="Bootstrapped">Bootstrapped</option>
+                </select>
+            </div>
+            <div class="form-group mt-2">
+                <label for="fundingInfo.fundingRaised">Funding Raised:</label>
+                <input type="number" class="form-control" name="fundingInfo.fundingRaised" value="<%= startup.fundingInfo.fundingRaised %>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="fundingInfo.investmentRequired">Investment Required:</label>
+                <input type="number" class="form-control" name="fundingInfo.investmentRequired" value="<%= startup.fundingInfo.investmentRequired %>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="operationalDetails.teamSize">Team Size:</label>
+                <input type="number" class="form-control" name="operationalDetails.teamSize" value="<%= startup.operationalDetails.teamSize %>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="operationalDetails.revenueModel">Revenue Model:</label>
+                <input type="text" class="form-control" name="operationalDetails.revenueModel" value="<%= startup.operationalDetails.revenueModel %>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="operationalDetails.visionMission">Vision/Mission:</label>
+                <textarea class="form-control" name="operationalDetails.visionMission" rows="4"><%= startup.operationalDetails.visionMission %></textarea>
+            </div>
+            <div class="form-group mt-2">
+                <label for="website">Website:</label>
+                <input type="text" class="form-control" name="website" value="<%= startup.website %>">
+            </div>
+            <div class="form-group mt-2">
+                <label for="logoUrl">Logo URL:</label>
+                <input type="text" class="form-control" name="logoUrl" value="<%= startup.logoUrl %>">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 mb-3">Update Startup</button>
+        </form>
+    </div>
+</body>
+
