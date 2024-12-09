@@ -20,17 +20,23 @@ main().then(()=>{
 })
 
 
-// const initDB = async ()=> {
-//     await Startup.deleteMany({});
-//     await Startup.insertMany(startupdata.data);
-//     console.log("data was initialized");
-// }
 
+//add owner either this way or direct add in data file
 const initDB = async ()=> {
-    await Investor.deleteMany({});
-    await Investor.insertMany(investorsData.data);
+    await Startup.deleteMany({});
+    startupdata.data = startupdata.data.map((obj) => ({...obj, owner: "673388f4c263bfc6ee1ff6b0"}));
+    await Startup.insertMany(startupdata.data);
     console.log("data was initialized");
 }
+
+
+
+// const initDB = async ()=> {
+//     await Investor.deleteMany({});
+//     //investorsData.data = investorsData.data.map((obj) => ({...obj, owner: "67338d295785c04cf16cc2c4"}));
+//     await Investor.insertMany(investorsData.data);
+//     console.log("data was initialized");
+// }
 
 
 // const initDB = async ()=> {

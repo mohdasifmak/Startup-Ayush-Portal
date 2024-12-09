@@ -3,10 +3,15 @@
 <body class="d-flex flex-column min-vh-100">
   <div class="container mt-5">
     <h2>Login</h2>
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" novalidate class="needs-validation">
+
+      <% if (errorMessage && errorMessage.length > 0) { %>
+        <div class="alert alert-danger"><%= errorMessage[0] %></div>
+      <% } %>
+
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
+        <label for="username">Username</label>
+        <input type="username" class="form-control" id="username" name="username" required>
       </div>
       <div class="form-group">
         <label for="password">Password</label>

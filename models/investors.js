@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const investorSchema = new mongoose.Schema({
     name: {
@@ -11,10 +12,13 @@ const investorSchema = new mongoose.Schema({
     },
     contactInfo: {
         email: String,
-        phone: String,
+        phone: Number,
         website: String,
     },
-    investmentAreas: [String],
+    investmentAreas: {
+        type: String,
+        require: true,
+    },
     fundingRange: {
         min: Number,
         max: Number,
@@ -24,19 +28,22 @@ const investorSchema = new mongoose.Schema({
         state: String,
         country: String,
     },
-    experience: Number, // In years
-    preferredFundingStages: [String], // E.g., Seed, Series A, etc.
-    logoURL:{  // URL for the logo image
-        type: String, 
-        default:"https://images.pexels.com/photos/7414283/pexels-photo-7414283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    experience: Number,
+    preferredFundingStages: { type: String, enum: ['Pre-seed', 'Seed', 'Series A', 'Series B', 'Bootstrapped'], required: true },
 
-        set: (v)=> v===""?"https://images.pexels.com/photos/7414283/pexels-photo-7414283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1":v,
+    logoURL:{  // URL for the logo image
+        url: String,
+        filename: String,
     },    
     status: {
         type: String,
         enum: ['Active', 'Inactive'],
         default: 'Active',
     },
+    owner:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    }
 });
 
 const Investor = mongoose.model('Investor', investorSchema);

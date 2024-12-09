@@ -24,6 +24,17 @@
 </style>
 
 <body>
+    <% if (error_message  && error_message.length > 0) { %>
+        <div class="alert alert-danger">
+          <%= error_message %>
+        </div>
+      <% } %>
+      
+      <% if (success_message && success_message.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success_message %>
+        </div>
+    <% } %>
     <div class="container">
         <h1 class="text-center my-4">Investors</h1>
         <div class="row">
@@ -31,7 +42,7 @@
                 <div class="col-md-4">
                     <a href="/investors/<%= investor._id %>" class="click">
                     <div class="card">
-                        <img src="<%= investor.logoURL %>" class="card-img-top" alt="Investor Logo">
+                        <img src="<%= investor.logoURL.url %>" class="card-img-top" alt="Investor Logo">
                         <div class="card-body">
                             <h5 class="card-title"><%= investor.name %></h5>
                             <p class="card-text">Industry: <%= investor.industry %></p>

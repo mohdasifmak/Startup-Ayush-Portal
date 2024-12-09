@@ -2,7 +2,7 @@
 <body>
     <div class="container mt-3">
         <h1>Update Information</h1>
-        <form action="/mentor/update/<%= mentor._id %>" method="POST">
+        <form action="/mentor/update/<%= mentor._id %>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" name="name" value="<%= mentor.name %>" required>
@@ -21,11 +21,11 @@
             </div>
             <div class="form-group mt-2">
                 <label for="contactInfo.email">Email:</label>
-                <input type="email" class="form-control" name="contactInfo.email" value="<%= mentor.contactInfo.email %>" required>
+                <input type="email" class="form-control" name="contactInfo.email" value="<%= mentor.email %>" required>
             </div>
             <div class="form-group mt-2">
                 <label for="contactInfo.phone">Phone:</label>
-                <input type="text" class="form-control" name="contactInfo.phone" value="<%= mentor.contactInfo.phone %>" required>
+                <input type="text" class="form-control" name="contactInfo.phone" value="<%= mentor.phone %>" required>
             </div>
             <div class="form-group mt-2">
                 <label for="bio">Bio:</label>
@@ -36,8 +36,9 @@
                 <input type="text" class="form-control" name="availability" value="<%= mentor.availability %>" required>
             </div>
             <div class="form-group mt-2">
-                <label for="logoUrl">Logo URL:</label>
-                <input type="text" class="form-control" name="logoUrl" value="<%= mentor.logoUrl %>" required>
+                <label for="logoUrl">Update Picture</label>
+                <input type="file" class="form-control" name="logoUrl">
+                <img src="<%= mentor.logoUrl.url %>" alt="Investor Logo" class="mt-2" style="max-width: 150px;">
             </div>
             <button type="submit" class="btn btn-primary mt-3 mb-3">Update Mentor</button>
         </form>

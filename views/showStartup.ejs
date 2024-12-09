@@ -55,12 +55,24 @@
 </style>
 
 <body>
+    <% if (error_message  && error_message.length > 0) { %>
+        <div class="alert alert-danger">
+          <%= error_message %>
+        </div>
+      <% } %>
+      
+      <% if (success_message && success_message.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success_message %>
+        </div>
+    <% } %>
   <div class="profile-header">
-      <img src="<%= startup.logo %>" alt="Startup Logo" class="profile-logo mb-3">
+      <img src="<%= startup.logo.url %>" alt="Startup Logo" class="profile-logo mb-3">
       <h1><%= startup.name %></h1>
       <p class="lead"><%= startup.industry %> Industry</p>
   </div>
 
+  <% if(currUser && currUser._id.equals(startup.owner._id)) {%>
   <div class="d-flex justify-content-between">
     <div class="mt-3">
         <a href="/startup/update/<%= startup._id %>" class="back-button">Update Profile</a>
@@ -71,6 +83,8 @@
         </form>
     </div>
     </div>
+    <% } %>
+    
   
   <div class="container">
       <div class="card profile-card">
@@ -87,8 +101,8 @@
           <div class="card-content">
               <h4 class="section-title">Funding Information</h4>
               <p><strong>Funding Stage:</strong> <%= startup.fundingInfo.fundingStage %></p>
-              <p><strong>Funding Raised:</strong> $<%= startup.fundingInfo.fundingRaised.toLocaleString() %></p>
-              <p><strong>Investment Required:</strong> $<%= startup.fundingInfo.investmentRequired.toLocaleString() %></p>
+              <p><strong>Funding Raised:</strong> ₹<%= startup.fundingInfo.fundingRaised.toLocaleString() %></p>
+              <p><strong>Investment Required:</strong> ₹<%= startup.fundingInfo.investmentRequired.toLocaleString() %></p>
           </div>
 
           <!-- Vision and Mission -->

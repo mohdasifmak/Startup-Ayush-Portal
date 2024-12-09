@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 
-// Define the sub-schema for different sections of the startup data
+
 const ContactInfoSchema = new mongoose.Schema({
     email: { type: String, required: true },
-    phone: { type: String },
+    phone: { type: Number},
     website: { type: String },
 });
 
@@ -21,16 +22,14 @@ const OperationalDetailsSchema = new mongoose.Schema({
     status: { type: String, enum: ['Active', 'Closed', 'Acquired'], required: true },
 });
 
+
 // Define the main Startup schema with nested sub-schemas
 const StartupSchema = new mongoose.Schema({
     name: { type: String, required: true },
     description: { type: String, required: true },
     logo: {
-        type: String,
-        default:"https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-
-        set: (v)=> v===""?"https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1":v,
-        required: true
+        url: String,
+        filename: String,
     },
     industry: { type: String, enum: ['Ayurveda', 'Yoga', 'Naturopathy', 'Unani', 'Siddha', 'Homeopathy'], required: true },
     founderName: { type: String, required: true },
@@ -41,6 +40,11 @@ const StartupSchema = new mongoose.Schema({
     contactInfo: ContactInfoSchema,
     fundingInfo: FundingInfoSchema,
     operationalDetails: OperationalDetailsSchema,
+
+    owner:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    }
 });
 
 // Export the model for use in routes

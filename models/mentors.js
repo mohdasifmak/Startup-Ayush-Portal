@@ -1,5 +1,6 @@
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const MentorSchema = new mongoose.Schema({
   name: {
@@ -18,15 +19,13 @@ const MentorSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  contactInfo: {
-    email: {
+  email: {
       type: String,
       required: true
-    },
-    phone: {
-      type: String,
+  },
+  phone: {
+      type: Number,
       required: true
-    }
   },
   bio: {
     type: String,
@@ -37,11 +36,12 @@ const MentorSchema = new mongoose.Schema({
     required: true
   },
   logoUrl: {
-    type: String,
-    default:"https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-
-    set: (v)=> v===""?"https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1":v,
-    required: true
+    url: String,
+    filename: String,
+  },
+  owner:{
+    type: Schema.Types.ObjectId,
+    ref: "User",
   }
 });
 

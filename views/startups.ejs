@@ -46,14 +46,25 @@
 
 
 <body>
+  <% if (error_message  && error_message.length > 0) { %>
+    <div class="alert alert-danger">
+      <%= error_message %>
+    </div>
+  <% } %>
+  
+  <% if (success_message && success_message.length > 0) { %>
+    <div class="alert alert-success">
+      <%= success_message %>
+    </div>
+<% } %>
   <div class="container mt-5">
-    <h1 class="text-center mb-4">Explore AYUSH Startups</h1>
+    <h1 class="text-center mb-4">Startups</h1>
     <div class="row">
       <% allStartups.forEach(startup => { %>
         <div class="col-md-4">
           <a href="/startups/<%= startup._id %>" class="click">
           <div class="card mb-4 startup-card shadow-sm">
-            <img src="<%= startup.logo %>" class="card-img-top" alt="<%= startup.name %> Logo">
+            <img src="<%= startup.logo.url %>" class="card-img-top" alt="<%= startup.name %> Logo">
             <div class="card-body">
               <h5 class="card-title"><%= startup.name %></h5>
               <p class="card-text"><strong>Industry:</strong> <%= startup.industry %></p>

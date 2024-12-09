@@ -57,12 +57,24 @@
 
 
 <body>
+    <% if (error_message  && error_message.length > 0) { %>
+        <div class="alert alert-danger">
+          <%= error_message %>
+        </div>
+      <% } %>
+      
+      <% if (success_message && success_message.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success_message %>
+        </div>
+    <% } %>
     <div class="profile-header">
-        <img src="<%= investor.logoURL %>" alt="Investor Logo" class="profile-logo mb-3">
+        <img src="<%= investor.logoURL.url %>" alt="Investor Logo" class="profile-logo mb-3">
         <h1><%= investor.name %></h1>
         <p class="lead"><%= investor.industry %> Industry</p>
     </div>
 
+    <% if(currUser && currUser._id.equals(investor.owner._id)) {%>
     <div class="d-flex justify-content-between">
     <div class="mt-3">
         <a href="/investor/update/<%= investor._id %>" class="back-button">Update Profile</a>
@@ -73,6 +85,7 @@
         </form>
     </div>
     </div>
+    <% } %>
     
     <div class="container">
         <div class="card profile-card">
@@ -81,27 +94,19 @@
                 <h4 class="section-title">Basic Information</h4>
                 <p><strong>Location:</strong> <%= investor.location.city %>, <%= investor.location.state %>, <%= investor.location.country %></p>
                 <p><strong>Experience:</strong> <%= investor.experience %> years</p>
-                <p><strong>Funding Range:</strong> $<%= investor.fundingRange.min %> - $<%= investor.fundingRange.max %></p>
+                <p><strong>Funding Range:</strong> ₹<%= investor.fundingRange.min %> - ₹<%= investor.fundingRange.max %></p>
             </div>
 
             <!-- Investment Details -->
             <div class="card-content">
                 <h4 class="section-title">Investment Areas</h4>
-                <ul class="list-group">
-                    <% investor.investmentAreas.forEach(area => { %>
-                        <li class="list-group-item"><%= area %></li>
-                    <% }) %>
-                </ul>
+                <p><%= investor.investmentAreas %></p>
             </div>
 
             <!-- Funding Stages -->
             <div class="card-content">
-                <h4 class="section-title">Preferred Funding Stages</h4>
-                <ul class="list-group">
-                    <% investor.preferredFundingStages.forEach(stage => { %>
-                        <li class="list-group-item"><%= stage %></li>
-                    <% }) %>
-                </ul>
+                <h4 class="section-title">Preferred Funding Stage</h4>
+                <p><%= investor.preferredFundingStages %></p>
             </div>
 
             <!-- Contact Information -->

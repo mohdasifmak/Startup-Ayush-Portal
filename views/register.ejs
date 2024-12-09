@@ -1,13 +1,22 @@
 <%- layout("/boilerplate.ejs") %>
 
 <body class="d-flex flex-column min-vh-100">
+
+  <% if (error_message  && error_message.length > 0) { %>
+    <div class="alert alert-danger">
+      <%= error_message %>
+    </div>
+  <% } %>
+  
+  <% if (success_message && success_message.length > 0) { %>
+    <div class="alert alert-success">
+      <%= success_message %>
+    </div>
+  <% } %>
+
   <div class="container mt-3">
     <h2>Register</h2>
-    <form action="/register" method="POST">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
+    <form action="/register" method="POST" novalidate class="needs-validation">
       <div class="form-group mt-3">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username" required>

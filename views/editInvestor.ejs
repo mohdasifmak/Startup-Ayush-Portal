@@ -1,55 +1,92 @@
 <%- layout("/boilerplate.ejs") %>
 
 <body>
-    <div class="container mt-3">
-        <h1>Update Information</h1>
-        <form action="/investor/update/<%= investor._id %>" method="POST">
-            <div class="form-group mt-2">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" name="name" value="<%= investor.name %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="industry">Industry:</label>
-                <input type="text" class="form-control" name="industry" value="<%= investor.industry %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="contactInfo.email">Email:</label>
-                <input type="email" class="form-control" name="contactInfo.email" value="<%= investor.contactInfo.email %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="contactInfo.phone">Phone:</label>
-                <input type="tel" class="form-control" name="contactInfo.phone" value="<%= investor.contactInfo.phone %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="website">Website:</label>
-                <input type="url" class="form-control" name="contactInfo.website" value="<%= investor.contactInfo.website %>">
-            </div>
-            <div class="form-group mt-2">
-                <label for="investmentAreas">Investment Areas:</label>
-                <input type="text" class="form-control" name="investmentAreas" value="<%= investor.investmentAreas.join(', ') %>" placeholder="Comma separated values">
-            </div>
-            <div class="form-group mt-2">
-                <label for="fundingRange.min">Funding Range (Min):</label>
-                <input type="number" class="form-control" name="fundingRange.min" value="<%= investor.fundingRange.min %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="fundingRange.max">Funding Range (Max):</label>
-                <input type="number" class="form-control" name="fundingRange.max" value="<%= investor.fundingRange.max %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="location.city">Location (City):</label>
-                <input type="text" class="form-control" name="location.city" value="<%= investor.location.city %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="location.state">Location (State):</label>
-                <input type="text" class="form-control" name="location.state" value="<%= investor.location.state %>" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="location.country">Location (Country):</label>
-                <input type="text" class="form-control" name="location.country" value="<%= investor.location.country %>" required>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3 mb-3">Update Investor</button>
-        </form>
+  <h2 class="mt-4">Edit Investor Information</h2>
+  <form action="/investor/update/<%= investor._id %>" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= investor.name %>" required>
     </div>
+
+    <div class="form-group">
+      <label for="industry">Industry</label>
+      <input type="text" class="form-control" id="industry" name="industry" value="<%= investor.industry %>" required>
+    </div>
+
+    <!-- Contact Info -->
+    <h3 class="mt-5">Contact Information</h3>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="contactInfo[email]" value="<%= investor.contactInfo.email %>" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" id="phone" name="contactInfo[phone]" value="<%= investor.contactInfo.phone %>">
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="url" class="form-control" id="website" name="contactInfo[website]" value="<%= investor.contactInfo.website %>">
+    </div>
+
+    <div class="form-group">
+      <label for="investmentAreas">Investment Areas</label>
+      <input type="text" class="form-control" id="investmentAreas" name="investmentAreas" value="<%= investor.investmentAreas %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="fundingRangeMin">Funding Range (Min)</label>
+      <input type="number" class="form-control" id="fundingRangeMin" name="fundingRange[min]" value="<%= investor.fundingRange.min %>" required>
+    </div>
+    <div class="form-group">
+      <label for="fundingRangeMax">Funding Range (Max)</label>
+      <input type="number" class="form-control" id="fundingRangeMax" name="fundingRange[max]" value="<%= investor.fundingRange.max %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="locationCity">City</label>
+      <input type="text" class="form-control" id="locationCity" name="location[city]" value="<%= investor.location.city %>">
+    </div>
+    <div class="form-group">
+      <label for="locationState">State</label>
+      <input type="text" class="form-control" id="locationState" name="location[state]" value="<%= investor.location.state %>">
+    </div>
+    <div class="form-group">
+      <label for="locationCountry">Country</label>
+      <input type="text" class="form-control" id="locationCountry" name="location[country]" value="<%= investor.location.country %>">
+    </div>
+
+    <div class="form-group">
+      <label for="experience">Experience (Years)</label>
+      <input type="number" class="form-control" id="experience" name="experience" value="<%= investor.experience %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="preferredFundingStages" class="form-label">Preferred Funding Stages</label>
+      <select class="form-control" id="preferredFundingStages" name="preferredFundingStages" required>
+        <option <%= investor.preferredFundingStages === 'Pre-seed' ? 'selected' : '' %>>Pre-seed</option>
+        <option <%= investor.preferredFundingStages === 'Seed' ? 'selected' : '' %>>Seed</option>
+        <option <%= investor.preferredFundingStages === 'Series A' ? 'selected' : '' %>>Series A</option>
+        <option <%= investor.preferredFundingStages === 'Series B' ? 'selected' : '' %>>Series B</option>
+        <option <%= investor.preferredFundingStages === 'Bootstrapped' ? 'selected' : '' %>>Bootstrapped</option>
+      </select>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="logoURL">Upload Picture</label>
+      <input type="file" class="form-control" id="logoURL" name="logoURL">
+      <img src="<%= investor.logoURL.url %>" alt="Investor Logo" class="mt-2" style="max-width: 150px;">
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" name="status" required>
+        <option <%= investor.status === 'Active' ? 'selected' : '' %>>Active</option>
+        <option <%= investor.status === 'Inactive' ? 'selected' : '' %>>Inactive</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3 mb-3">Update Investor</button>
+  </form>
 </body>
+
 

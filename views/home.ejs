@@ -1,7 +1,22 @@
 <%- layout("/boilerplate.ejs") %>
 <body>
+
+
+    <% if (error_message  && error_message.length > 0) { %>
+        <div class="alert alert-danger">
+          <%= error_message %>
+        </div>
+      <% } %>
+      
+      <% if (success_message && success_message.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success_message %>
+        </div>
+      <% } %>
+
+      
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('/assets/homepageBanner.jpg'); background-size: cover; color: white; padding: 100px 0; text-align: center;">
+    <section class="hero" style="background-image: url('https://res.cloudinary.com/dtcwaszoq/image/upload/v1732356882/homepageBanner_hjkz0v.jpg'); background-size: cover; color: white; padding: 100px 0; text-align: center;">
         <h1 class="bannerHeading">Empowering AYUSH Startups to Flourish</h1>
         <br>
         <br>
@@ -33,7 +48,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="/assets/startup1logo.jpg" class="card-img-top" alt=" Herbal Innovate" style="height: 300px ;">
+                    <img src="https://res.cloudinary.com/dtcwaszoq/image/upload/v1732356881/startup1logo_fpygye.jpg" class="card-img-top" alt=" Herbal Innovate" style="height: 300px ;">
                     <div class="card-body">
                         <h5 class="card-title"> Herbal Innovate</h5>
                         <p class="card-text">Combining modern science with Ayurvedic wisdom to create sustainable, herbal health solutions.</p>
@@ -43,7 +58,7 @@
             <!-- Add more startup cards as needed -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="/assets/startup2logo.jpg" class="card-img-top" alt=" YogaPath" style="height: 300px;">
+                    <img src="https://res.cloudinary.com/dtcwaszoq/image/upload/v1732356882/Startup2logo_i2hqpi.jpg" class="card-img-top" alt=" YogaPath" style="height: 300px;">
                     <div class="card-body">
                         <h5 class="card-title"> YogaPath</h5>
                         <p class="card-text">A personalized yoga and meditation platform connecting users with global instructors for wellness anytime, anywhere.</p>
@@ -53,7 +68,7 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <img src="/assets/startup3logo.jpg" class="card-img-top" alt="  SiddhaWell" style="height: 300px;">
+                    <img src="https://res.cloudinary.com/dtcwaszoq/image/upload/v1732356882/startup3logo_kdbnjv.jpg" class="card-img-top" alt="  SiddhaWell" style="height: 300px;">
                     <div class="card-body">
                         <h5 class="card-title">  SiddhaWell</h5>
                         <p class="card-text">Reviving traditional Siddha medicine with modern solutions for holistic health and natural healing.</p>

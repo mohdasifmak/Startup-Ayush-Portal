@@ -23,14 +23,19 @@
                     <li class="nav-item"><a class="nav-link" href="/startups">Startups</a></li>
                     <li class="nav-item"><a class="nav-link" href="/investors">Investors</a></li>
                     <li class="nav-item"><a class="nav-link" href="/mentors">Mentorship</a></li>
+                    <% if(!currUser){ %>
                     <li class="nav-item"><a class="nav-link btn btn-primary" href="/register">Login/Register</a></li>
+                    <% } %>
+                    <% if(currUser){ %>
+                    <li class="nav-item"><a class="nav-link btn btn-primary" href="/logout">Log out</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
     </header>
 
 
-      <div class="container">
+      <div class="container min-vh-100">
         <%- body %>
       </div>
 
@@ -50,7 +55,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <script src="/js/scripts.js"></script> <!-- Link to your JS -->
+  <script src="/public/js/script.js"></script>
 </body>
 </body>
 </html>

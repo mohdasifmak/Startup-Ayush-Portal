@@ -1,6 +1,17 @@
 <%- layout("/boilerplate.ejs") %>
 
 <body>
+  <% if (error_message  && error_message.length > 0) { %>
+    <div class="alert alert-danger">
+      <%= error_message %>
+    </div>
+  <% } %>
+  
+  <% if (success_message && success_message.length > 0) { %>
+    <div class="alert alert-success">
+      <%= success_message %>
+    </div>
+<% } %>
   <div class="container">
     <h1 class="my-4">Mentors</h1>
     <div class="row">
@@ -9,7 +20,7 @@
         <!-- Wrap the card content inside an <a> tag -->
         <a href="/mentors/<%= mentor._id %>" class="card-link">
           <div class="card mb-4 shadow-sm">
-            <img src="<%= mentor.logoUrl %>" class="card-img-top" alt="<%= mentor.name %>">
+            <img src="<%= mentor.logoUrl.url %>" class="card-img-top" alt="<%= mentor.name %>">
             <div class="card-body">
               <h5 class="card-title"><%= mentor.name %></h5>
               <p class="card-text"><strong>Expertise:</strong> <%= mentor.expertise %></p>
